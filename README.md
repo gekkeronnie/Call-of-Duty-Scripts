@@ -3,7 +3,8 @@
 Script to go AFK in Lion Sword Room with the Lion Sword.
 
 ## The Tombs - Ice Staff AFK
-Script to go AFK with the Ice Staff.
+Script to go AFK with the Ice Staff.<br/><br/>
+
 
 # Changelog
 
