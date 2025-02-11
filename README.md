@@ -1,8 +1,8 @@
-# Black Ops 6
-## Citadelle - Lion Sword Room AFK
-Script to go AFK in Lion Sword Room with the Lion Sword.
+# Black Ops 6 Scripts
+### Citadelle - Lion Sword Room AFK
+Script to go AFK in Lion Sword Room with the Lion Sword.<br/><br/>
 
-## The Tomb - Ice Staff AFK
+### The Tomb - Ice Staff AFK
 Script to go AFK with the Ice Staff.<br/><br/>
 
 > # Changelog
