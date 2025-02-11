@@ -6,7 +6,8 @@ Script to go AFK in Lion Sword Room with the Lion Sword.
 Script to go AFK with the Ice Staff.<br/><br/>
 
 
-# Changelog
+> [!NOTE]
+> Changelog
 
 ### Citadelle - Lion Sword Room AFK
 V1.0 - Sword AFK Kill V1.0
