@@ -9,8 +9,8 @@ Script to go AFK with the Ice Staff.<br/><br/>
 # Changelog
 
 ### Citadelle - Lion Sword Room AFK
-V1.0 - Sword AFK Kill V1.0$$
-- Creation of the Script$$
+V1.0 - Sword AFK Kill V1.0
+- Creation of the Script
 ### The Tombs - Ice Staff AFK
 V2.7 - Tomb_AFK_V2.7.ahk
 - First Public Release
