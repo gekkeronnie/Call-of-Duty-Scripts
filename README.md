@@ -32,6 +32,10 @@ F7 = End Script<br/>
 
 > # Changelog
 > ### Citadelle - Lion Sword Room AFK
+> V1.1<br/>
+> - Changed loop method to settimer
+> - Added Call of Duty process detection, if its not detected loop will end and script will be terminated
+> 
 > V1.0
 >  - First Public Release<br/><br/>
 >
