@@ -29,3 +29,5 @@ ShowMouseInfo:
 return
 
 #MaxThreadsPerHotkey 3
+
+F7::ExitApp
