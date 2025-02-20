@@ -45,10 +45,30 @@ F7 = End Script<br/>
 > - Added Call of Duty process detection, if its not detected loop will end and script will be terminated<br/><br/>
 > 
 > V3.1
-> - Added 1 more color to check for emergency alt + f4 save<br/><br/>
+> - Added 1 more color to check for emergency alt + f4 save<br/>
 >
 > V3.0
-> - Added 3 more colors to check for emergency alt + f4 save<br/><br/>
+> - Added 3 more colors to check for emergency alt + f4 save<br/>
 >
 > V2.7
-> - First Public Release
+> - First Public Release<br/><br/>
+>
+> ### Emergency Alt F4
+> V2.2
+> - Adjusted some colors to avoid causing Alt + F4 being pressed when not down.<br/>
+> 
+> V2.1
+> - Changed calculation method so it should be more accurate<br/>
+>
+> V2.0
+> - Rewrote the entire code so it's not pixel based anymore, but percent based. This means it works for any resolution.<br/>
+>
+> V1.0
+> - Initial release<br/><br/>
+>
+> ### Mouse Position
+> V2.0
+> - Instead of only pixel information is also gets percentage and readable color codes<br/>
+>
+> V1.0
+> - Initial release<br/>
