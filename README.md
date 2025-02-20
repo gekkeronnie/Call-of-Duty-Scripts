@@ -54,6 +54,9 @@ F7 = End Script<br/>
 > - First Public Release<br/><br/>
 >
 > ### Emergency Alt F4
+> V2.2
+> - Adjusted some colors to avoid causing Alt + F4 being pressed when not down.<br/>
+> 
 > V2.1
 > - Changed calculation method so it should be more accurate<br/>
 >
