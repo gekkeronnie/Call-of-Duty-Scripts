@@ -15,14 +15,6 @@ Hotkeys: <br/>
 F5 = Start Script<br>
 F6 = Exit Script<br/>
 
-
-### Emergency Alt F4
-Script will terminate Call of Duty upon bleedout creating an emergency save.<br/>
-Upon execute script will automatically work, every 100ms there are checks, advice to test before AFK in high rounds.<br/>
-
-Hotkeys: <br/>
-F7 = End Script<br/>
-
 ### Mouse Position
 Script to get the position and color of the mouse.<br/>
 Upon execute script will display a tooltip with required information.<br/>
