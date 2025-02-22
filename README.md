@@ -40,10 +40,6 @@ F7 = End Script<br/>
 >  - First Public Release<br/><br/>
 >
 > ### The Tomb - Ice Staff AFK
-> V3.2
-> - Removed Emergency Alt F4 code since this is now being provided in a seperate script under MISC scripts<br/>
-> - Added Call of Duty process detection, if its not detected loop will end and script will be terminated<br/><br/>
-> 
 > V3.1
 > - Added 1 more color to check for emergency alt + f4 save<br/>
 >
@@ -52,19 +48,6 @@ F7 = End Script<br/>
 >
 > V2.7
 > - First Public Release<br/><br/>
->
-> ### Emergency Alt F4
-> V2.2
-> - Adjusted some colors to avoid causing Alt + F4 being pressed when not down.<br/>
-> 
-> V2.1
-> - Changed calculation method so it should be more accurate<br/>
->
-> V2.0
-> - Rewrote the entire code so it's not pixel based anymore, but percent based. This means it works for any resolution.<br/>
->
-> V1.0
-> - Initial release<br/><br/>
 >
 > ### Mouse Position
 > V2.0
