@@ -70,9 +70,10 @@ CheckScreen:
         ; Fix: Concatenate variables properly for ImageSearch
         ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *10 %currentImagePath%
 
-        ; Check if the image was found (ErrorLevel = 0 means found)
+        ; Show MessageBox for debugging purposes
         if (ErrorLevel = 0)
         {
+            MsgBox, Image %A_Index% found at %FoundX%, %FoundY% ; Show where it was found
             Click, %FoundX%, %FoundY%
             
             ; Wait for 5 seconds for images 1, 3, 4, and 5
@@ -80,6 +81,10 @@ CheckScreen:
             {
                 Sleep, 5000  ; 5-second delay
             }
+        }
+        else
+        {
+            MsgBox, Image %A_Index% not found. ; Show if the image wasn't found
         }
 
         ; After the 2nd image, press Escape again after 20 seconds
