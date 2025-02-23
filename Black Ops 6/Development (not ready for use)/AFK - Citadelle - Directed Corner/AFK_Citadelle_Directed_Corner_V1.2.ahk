@@ -59,15 +59,14 @@ Return
 
 CheckScreen:
     ; Switch to Sword and Run left
-    Send, {A Down}
     Send, {v Down}
     sleep 2000
     Send, {v Up}
-    Send, {A Up}
+    Send, {a Up}
 
     ; Hold mouse, A, and S keys for 5 hours (in reality for a short test duration)
     Click, Down  ; Hold left mouse button down
-    Send, {a down}  ; Hold A to move left
+    Send, {d down}  ; Hold A to move left
     Send, {s down}  ; Hold S to move (as you wanted)
 
     Sleep, 18000000  ; Hold the keys and mouse for 5 hours (18 million milliseconds for testing, adjust as necessary)
@@ -126,7 +125,9 @@ CheckScreen:
     if (ErrorLevel = 0)
     {
         Click, %FoundX%, %FoundY%
-        Sleep, 50000
+        Sleep, 40000
+        Send, {a down}
+        sleep 5000
     }
 
     ; Restart process (loop)
