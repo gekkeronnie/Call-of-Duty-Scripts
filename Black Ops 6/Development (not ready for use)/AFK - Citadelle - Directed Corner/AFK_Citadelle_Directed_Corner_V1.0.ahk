@@ -1,17 +1,17 @@
 ﻿#Persistent
 
 ; Image URLs & Paths (Use raw URLs for GitHub images)
-imageURLs1 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_and_quit2.png"
+imageURLs1 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_and_quit.png"
 imageURLs2 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save.png"
 imageURLs3 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/select_mission.png"
 imageURLs4 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_file.png"
 imageURLs5 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/citadelle.png"
 
-imagePaths1 := A_Temp . "\save_and_quit2.png"
-imagePaths2 := A_Temp . "\save.png"
-imagePaths3 := A_Temp . "\select_mission.png"
-imagePaths4 := A_Temp . "\save_file.png"
-imagePaths5 := A_Temp . "\citadelle.png"
+imagePaths1 := A_Temp . "\save_and_quit4.png"
+imagePaths2 := A_Temp . "\save4.png"
+imagePaths3 := A_Temp . "\select_mission5.png"
+imagePaths4 := A_Temp . "\save_file4.png"
+imagePaths5 := A_Temp . "\citadelle4.png"
 
 ; Download the images if they don’t exist
 Loop, 5
@@ -26,8 +26,8 @@ Loop, 5
         URLDownloadToFile, % currentImageURL, % currentImagePath
         Sleep, 500  ; Wait for the file to save
 
-        ; Check if the image file exists and is non-empty by reading the file
-        if !FileExist(currentImagePath) or (FileRead, FileContent, %currentImagePath%) = 0
+        ; Check if the image file exists
+        if !FileExist(currentImagePath)
         {
             MsgBox, 16, Error, The required image %A_Index% could not be downloaded. The URL might be incorrect or there may be an internet issue.
             ExitApp  ; Exit if any download fails
@@ -57,43 +57,65 @@ CheckScreen:
 
     sleep, 1000 ; Wait for 5 seconds before start the restart process
 
-    ; After holding the mouse, press Escape and wait for 5 seconds
+    ; After holding the mouse, press Escape and wait for 3 seconds
     Send, {Esc}  ; Press Escape
-    Sleep, 5000  ; Wait for 5 seconds before starting the search
+    Sleep, 3000  ; Wait for 3 seconds before starting the search
 
-    ; Process images
-    Loop, 5
+    ; Process image 1
+    MsgBox, 4,, Searching for Image 1... Please wait for 3 seconds.
+    Sleep, 3000  ; Wait 3 seconds before searching
+    currentImagePath := imagePaths1
+    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *10 %currentImagePath%
+    if (ErrorLevel = 0)
     {
-        ; Dynamically assign the current image path
-        currentImagePath := imagePaths%A_Index%
+        Click, %FoundX%, %FoundY%  ; Click the found position
+        Sleep, 3000  ; Wait 3 seconds after clicking image 1
+    }
 
-        ; Fix: Concatenate variables properly for ImageSearch
-        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *10 %currentImagePath%
+    ; Process image 2
+    MsgBox, 4,, Searching for Image 2... Please wait for 3 seconds.
+    Sleep, 3000  ; Wait 3 seconds before searching
+    currentImagePath := imagePaths2
+    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *10 %currentImagePath%
+    if (ErrorLevel = 0)
+    {
+        Click, %FoundX%, %FoundY%  ; Click the found position
+        Sleep, 30000  ; Wait 30 seconds after clicking image 2
+        Send, {Esc}   ; Press Escape after second image
+        Sleep, 500    ; Short delay after pressing Escape
+    }
 
-        ; Show MessageBox for debugging purposes
-        if (ErrorLevel = 0)
-        {
-            MsgBox, Image %A_Index% found at %FoundX%, %FoundY% ; Show where it was found
-            Click, %FoundX%, %FoundY%
-            
-            ; Wait for 5 seconds for images 1, 3, 4, and 5
-            if (A_Index != 2)
-            {
-                Sleep, 5000  ; 5-second delay
-            }
-        }
-        else
-        {
-            MsgBox, Image %A_Index% not found. ; Show if the image wasn't found
-        }
+    ; Process image 3
+    MsgBox, 4,, Searching for Image 3... Please wait for 3 seconds.
+    Sleep, 3000  ; Wait 3 seconds before searching
+    currentImagePath := imagePaths3
+    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *10 %currentImagePath%
+    if (ErrorLevel = 0)
+    {
+        Click, %FoundX%, %FoundY%  ; Click the found position
+        Sleep, 3000  ; Wait 3 seconds after clicking image 3
+    }
 
-        ; After the 2nd image, press Escape again after 20 seconds
-        if (A_Index = 2)
-        {
-            Sleep, 20000  ; 20-second delay
-            Send, {Esc}   ; Press Escape
-            Sleep, 500    ; Wait after pressing Escape
-        }
+    ; Process image 4
+    MsgBox, 4,, Searching for Image 4... Please wait for 3 seconds.
+    Sleep, 3000  ; Wait 3 seconds before searching
+    currentImagePath := imagePaths4
+    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *10 %currentImagePath%
+    if (ErrorLevel = 0)
+    {
+        Click, %FoundX%, %FoundY%  ; Click the found position
+        Sleep, 3000  ; Wait 3 seconds after clicking image 4
+    }
+
+    ; Process image 5
+    MsgBox, 4,, Searching for Image 5... Please wait for 3 seconds.
+    Sleep, 3000  ; Wait 3 seconds before searching
+    currentImagePath := imagePaths5
+    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *10 %currentImagePath%
+    if (ErrorLevel = 0)
+    {
+        Click, %FoundX%, %FoundY%  ; Click the found position
+        Sleep, 3000  ; Wait 3 seconds after clicking image 5
     }
 
     ; Restart process (loop)
