@@ -1,13 +1,13 @@
 ﻿#Persistent
 
 ; Image URLs & Paths (Use raw URLs for GitHub images)
-imageURLs1 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_and_quit.png"
+imageURLs1 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_and_quit2.png"
 imageURLs2 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save.png"
 imageURLs3 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/select_mission.png"
 imageURLs4 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_file.png"
 imageURLs5 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/citadelle.png"
 
-imagePaths1 := A_Temp . "\save_and_quit.png"
+imagePaths1 := A_Temp . "\save_and_quit2.png"
 imagePaths2 := A_Temp . "\save.png"
 imagePaths3 := A_Temp . "\select_mission.png"
 imagePaths4 := A_Temp . "\save_file.png"
