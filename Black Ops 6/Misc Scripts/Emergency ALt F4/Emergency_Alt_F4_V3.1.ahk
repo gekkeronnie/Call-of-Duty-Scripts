@@ -1,7 +1,7 @@
 ﻿#Persistent
 
 ; Image URL & Path
-imageURL := "https://example.com/downed.png"
+imageURL := "https://github.com/gekkeronnie/Call-of-Duty-Scripts/blob/main/Black%20Ops%206/Sources/Images/downed.png"
 imagePath := A_Temp . "\downed.png"
 
 ; Download the image if it doesn’t exist (BEFORE the loop)
