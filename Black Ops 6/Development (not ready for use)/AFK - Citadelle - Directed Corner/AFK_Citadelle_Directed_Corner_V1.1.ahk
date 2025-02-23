@@ -51,11 +51,10 @@ Return
 CheckScreen:
     ; Hold left mouse button for 5 hours (18,000,000 milliseconds)
     Click, Down
-    ;Sleep, 18000000  ; 5 hours
-    sleep 1000 ; 10 seconds for testing
+    Sleep, 18000000  ; 5 hours (for testing, reduce sleep time)
     Click, Up
 
-    sleep, 1000 ; Wait for 5 seconds before starting the restart process
+    sleep, 1000 ; Wait for 1 second before starting the restart process
 
     ; After holding the mouse, press Escape and wait for 3 seconds
     Send, {Esc}  ; Press Escape
@@ -69,54 +68,68 @@ CheckScreen:
         ; Click the found position
         Click, %FoundX%, %FoundY%  ; Click at the found position
         Sleep, 3000  ; Wait 3 seconds after clicking image 1
-    }
 
-    ; Process image 2
-    currentImagePath := imagePaths2
-    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
-    if (ErrorLevel = 0)
+        ; Process image 2
+        currentImagePath := imagePaths2
+        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+        if (ErrorLevel = 0)
+        {
+            ; Click the found position
+            Click, %FoundX%, %FoundY%  ; Click at the found position
+            Sleep, 3000  ; Wait 3 seconds after clicking image 2
+
+            ; Wait for 30 seconds after image 2 and then press Escape
+            Sleep, 30000  ; 30 seconds
+            Send, {Esc}   ; Press Escape
+            Sleep, 3000   ; Wait for 3 seconds before moving to next image
+        }
+
+        ; Process image 3
+        currentImagePath := imagePaths3
+        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+        if (ErrorLevel = 0)
+        {
+            ; Click the found position
+            Click, %FoundX%, %FoundY%  ; Click at the found position
+            Sleep, 3000  ; Wait 3 seconds after clicking image 3
+        }
+
+        ; Process image 4
+        currentImagePath := imagePaths4
+        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+        if (ErrorLevel = 0)
+        {
+            ; Click the found position
+            Click, %FoundX%, %FoundY%  ; Click at the found position
+            Sleep, 3000  ; Wait 3 seconds after clicking image 4
+        }
+
+        ; Process image 5
+        currentImagePath := imagePaths5
+        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+        if (ErrorLevel = 0)
+        {
+            ; Click the found position
+            Click, %FoundX%, %FoundY%  ; Click at the found position
+            Sleep, 60000  ; Wait 3 seconds after clicking image 5
+        }
+
+        ; Restart process (loop)
+        Return
+    }
+    else
     {
-        ; Click the found position
-        Click, %FoundX%, %FoundY%  ; Click at the found position
-        Sleep, 3000  ; Wait 3 seconds after clicking image 2
+        ; If the first image is not found, press Escape, hold mouse, and retry
+        Send, {Esc}  ; Press Escape
+        Sleep, 1000  ; Wait 1 second before continuing
+        Click, Down   ; Hold left mouse button
+        Sleep, 10000  ; Hold for 10 seconds
+        Click, Up     ; Release mouse button
+        Sleep, 1000   ; Wait 1 second before retrying the search
 
-        ; Wait for 30 seconds after image 2 and then press Escape
-        Sleep, 30000  ; 30 seconds
-        Send, {Esc}   ; Press Escape
-        Sleep, 3000   ; Wait for 3 seconds before moving to next image
+        ; Restart the search for image 1
+        SetTimer, CheckScreen, -500  ; Restart the CheckScreen timer immediately
     }
-
-    ; Process image 3
-    currentImagePath := imagePaths3
-    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
-    if (ErrorLevel = 0)
-    {
-        ; Click the found position
-        Click, %FoundX%, %FoundY%  ; Click at the found position
-        Sleep, 3000  ; Wait 3 seconds after clicking image 3
-    }
-
-    ; Process image 4
-    currentImagePath := imagePaths4
-    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
-    if (ErrorLevel = 0)
-    {
-        ; Click the found position
-        Click, %FoundX%, %FoundY%  ; Click at the found position
-        Sleep, 3000  ; Wait 3 seconds after clicking image 4
-    }
-
-    ; Process image 5
-    currentImagePath := imagePaths5
-    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
-    if (ErrorLevel = 0)
-    {
-        ; Click the found position
-        Click, %FoundX%, %FoundY%  ; Click at the found position
-        Sleep, 60000  ; Wait 3 seconds after clicking image 5
-    }
-
-    ; Restart process (loop)
 Return
 
 ; Hotkey to exit the script (F6)
