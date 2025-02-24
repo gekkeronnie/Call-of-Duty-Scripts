@@ -16,7 +16,7 @@ F5 = Start Script<br>
 F6 = Exit Script<br/>
 
 ### AFK - Citadelle - Directed Corner
-Script to go AFK with the Ice Staff.<br/>
+Script to go AFK with Sword in Directed Mode with auto save and load<br/>
 Upon execute need to use hotkeys to make the script function.<br/>
 
 Hotkeys: <br/>
