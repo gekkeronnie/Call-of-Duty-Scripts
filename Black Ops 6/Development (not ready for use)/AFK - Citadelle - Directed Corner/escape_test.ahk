@@ -1,6 +1,6 @@
 ﻿; Image URL & Path for Image 3 (escape.png)
-imageURLs3 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/escape.png"
-imagePaths3 := A_Temp . "\escape.png"
+imageURLs3 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/escape2.png"
+imagePaths3 := A_Temp . "\escape21.png"
 
 ; Download Image 3 if it doesn't exist
 if !FileExist(imagePaths3)  
