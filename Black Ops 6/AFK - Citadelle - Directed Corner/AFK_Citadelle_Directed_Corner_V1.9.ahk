@@ -1,14 +1,14 @@
 ﻿; Image URLs & Paths (Use raw URLs for GitHub images)
 imageURLs1 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_and_quit.png"
 imageURLs2 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save.png"
-imageURLs3 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/escape2.png"
+imageURLs3 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/escape.png"
 imageURLs4 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/select_mission.png"
 imageURLs5 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_file.png"
 imageURLs6 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/citadelle.png"
 
 imagePaths1 := A_Temp . "\save_and_quit.png"
 imagePaths2 := A_Temp . "\save.png"
-imagePaths3 := A_Temp . "\escape23.png"
+imagePaths3 := A_Temp . "\escape.png"
 imagePaths4 := A_Temp . "\select_mission.png"
 imagePaths5 := A_Temp . "\save_file.png"
 imagePaths6 := A_Temp . "\citadelle.png"
@@ -63,7 +63,7 @@ CheckScreen:
     Send, {s down}  ; Hold S to move (as you wanted)
 
     ;Sleep, 18000000  ; Sleep for 5 hours (18 million milliseconds)
-    Sleep, 3600000 ; 1 Hour Testing
+    Sleep, 60000
 
     ; After 5 hours, release the mouse and keys
     Send, {a up}  ; Release A
