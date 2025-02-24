@@ -1,5 +1,5 @@
 # Black Ops 6 Scripts
-### Citadelle - Lion Sword Room AFK
+### AFK - Citadelle - Lion Sword Room
 Script to go AFK in Lion Sword Room with the Lion Sword.<br/>
 Upon execute need to use hotkeys to make the script function.<br/>
 
@@ -7,7 +7,15 @@ Hotkeys: <br/>
 F5 = Start Script<br>
 F6 = Exit Script<br/>
 
-### The Tomb - Ice Staff AFK
+### AFK - The Tombs - Ice Staff
+Script to go AFK with the Ice Staff.<br/>
+Upon execute need to use hotkeys to make the script function.<br/>
+
+Hotkeys: <br/>
+F5 = Start Script<br>
+F6 = Exit Script<br/>
+
+### AFK - Citadelle - Directed Corner
 Script to go AFK with the Ice Staff.<br/>
 Upon execute need to use hotkeys to make the script function.<br/>
 
@@ -23,7 +31,14 @@ Hotkeys: <br/>
 F7 = End Script<br/>
 
 > # Changelog
-> ### Citadelle - Lion Sword Room AFK
+> ### AFK - Citadelle - Directed Corner
+> V1.9<br/>
+> First fully functional public release
+>
+> V1.0 to 1.8
+> Development phase
+> 
+> ### AFK - Citadelle - Lion Sword Room
 > V1.1<br/>
 > - Changed loop method to settimer
 > - Added Call of Duty process detection, if its not detected loop will end and script will be terminated
@@ -31,7 +46,7 @@ F7 = End Script<br/>
 > V1.0
 >  - First Public Release<br/><br/>
 >
-> ### The Tomb - Ice Staff AFK
+> ### AFK - The Tombs - Ice Staff
 > V3.1
 > - Added 1 more color to check for emergency alt + f4 save<br/>
 >
