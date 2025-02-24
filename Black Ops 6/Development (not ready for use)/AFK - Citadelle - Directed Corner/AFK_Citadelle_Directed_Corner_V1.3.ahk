@@ -3,18 +3,20 @@
 ; Image URLs & Paths (Use raw URLs for GitHub images)
 imageURLs1 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_and_quit.png"
 imageURLs2 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save.png"
-imageURLs3 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/select_mission.png"
-imageURLs4 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_file.png"
-imageURLs5 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/citadelle.png"
+imageURLs3 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/escape.png"
+imageURLs4 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/select_mission.png"
+imageURLs5 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_file.png"
+imageURLs6 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/citadelle.png"
 
 imagePaths1 := A_Temp . "\save_and_quit.png"
 imagePaths2 := A_Temp . "\save.png"
-imagePaths3 := A_Temp . "\select_mission.png"
-imagePaths4 := A_Temp . "\save_file.png"
-imagePaths5 := A_Temp . "\citadelle.png"
+imagePaths3 := A_Temp . "\escape.png"
+imagePaths4 := A_Temp . "\select_mission.png"
+imagePaths5 := A_Temp . "\save_file.png"
+imagePaths6 := A_Temp . "\citadelle.png"
 
 ; Download the images if they don’t exist
-Loop, 5
+Loop, 6
 {
     currentImagePath := imagePaths%A_Index%
     currentImageURL := imageURLs%A_Index%
@@ -47,38 +49,32 @@ Return
 
 ; Function to check if cod.exe is running
 CheckCodRunning:
-    ; Check if cod.exe is running
     Process, Exist, cod.exe
     if (ErrorLevel = 0)
     {
-        ; If cod.exe is not running, exit the script
         MsgBox, 16, Error, cod.exe is not running. Exiting the script.
         ExitApp
     }
 Return
 
 CheckScreen:
-    ; Switch to Sword and Run left
     Send, {v Down}
     sleep 2000
     Send, {v Up}
     Send, {a Up}
 
-    ; Hold mouse, A, and S keys for 5 hours (in reality for a short test duration)
-    Click, Down  ; Hold left mouse button down
-    Send, {a down}  ; Hold A to move left
-    Send, {s down}  ; Hold S to move (as you wanted)
+    Click, Down
+    Send, {a down}
+    Send, {s down}
 
-    Sleep, 18000000  ; Hold the keys and mouse for 5 hours (18 million milliseconds for testing, adjust as necessary)
+    Sleep, 18000000
 
-    ; After 5 hours, release the mouse and keys
-    Send, {a up}  ; Release A
-    Send, {s up}  ; Release S
-    Click, Up  ; Release the mouse button
+    Send, {a up}
+    Send, {s up}
+    Click, Up
 
-    ; After holding the mouse, press Escape and wait for 3 seconds
-    Send, {Esc}  ; Press Escape
-    Sleep, 3000  ; Wait for 3 seconds before starting the search
+    Send, {Esc}
+    Sleep, 3000
 
     ; Process image 1
     currentImagePath := imagePaths1
@@ -97,11 +93,9 @@ CheckScreen:
         Click, %FoundX%, %FoundY%
         Sleep, 3000
         Sleep, 35000
-        ;;Send, {Esc}
-        ;;Sleep, 3000
     }
 
-    ; Process image 3
+    ; Process image 3 (Escape)
     currentImagePath := imagePaths3
     ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
     if (ErrorLevel = 0)
@@ -125,6 +119,15 @@ CheckScreen:
     if (ErrorLevel = 0)
     {
         Click, %FoundX%, %FoundY%
+        Sleep, 3000
+    }
+
+    ; Process image 6
+    currentImagePath := imagePaths6
+    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+    if (ErrorLevel = 0)
+    {
+        Click, %FoundX%, %FoundY%
         Sleep, 40000
         Send, {a down}
         sleep 5000
@@ -133,4 +136,4 @@ CheckScreen:
 Return
 
 ; Hotkey to exit the script (F6)
-F6::ExitApp  ; Press F6 to exit script
+F6::ExitApp
