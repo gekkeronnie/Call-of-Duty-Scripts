@@ -62,8 +62,7 @@ CheckScreen:
     Send, {a down}  ; Hold A to move left
     Send, {s down}  ; Hold S to move (as you wanted)
 
-    ;Sleep, 18000000  ; Sleep for 5 hours (18 million milliseconds)
-    Sleep, 60000
+    Sleep, 18000000  ; Sleep for 5 hours (18 million milliseconds)
 
     ; After 5 hours, release the mouse and keys
     Send, {a up}  ; Release A
