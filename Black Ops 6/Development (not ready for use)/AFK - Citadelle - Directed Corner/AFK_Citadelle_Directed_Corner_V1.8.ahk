@@ -1,6 +1,4 @@
-﻿#Persistent
-
-; Image URLs & Paths (Use raw URLs for GitHub images)
+﻿; Image URLs & Paths (Use raw URLs for GitHub images)
 imageURLs1 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save_and_quit.png"
 imageURLs2 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/save.png"
 imageURLs3 := "https://raw.githubusercontent.com/gekkeronnie/Call-of-Duty-Scripts/main/Black%20Ops%206/Sources/Images/escape.png"
@@ -27,7 +25,6 @@ Loop, 6
         Sleep, 1000  ; Wait for the file to save
     }
 }
-
 
 ; Declare a variable to track the first run
 started := false
@@ -65,7 +62,8 @@ CheckScreen:
     Send, {a down}  ; Hold A to move left
     Send, {s down}  ; Hold S to move (as you wanted)
 
-    Sleep, 18000000  ; Hold the keys and mouse for 5 hours (18 million milliseconds for testing, adjust as necessary)
+    ;Sleep, 18000000  ; Sleep for 5 hours (18 million milliseconds)
+    Sleep, 3600000 ; 1 Hour Testing
 
     ; After 5 hours, release the mouse and keys
     Send, {a up}  ; Release A
@@ -74,7 +72,7 @@ CheckScreen:
 
     ; After holding the mouse, press Escape and wait for 3 seconds
     Send, {Esc}  ; Press Escape
-    Sleep, 3000  ; Wait for 3 seconds before starting the search
+    Sleep, 500
 
     ; Process image 1
     Loop
@@ -84,7 +82,7 @@ CheckScreen:
         if (ErrorLevel = 0)
         {
             Click, %FoundX%, %FoundY%
-            Sleep, 3000
+            Sleep, 500
             Break
         }
         else
@@ -96,6 +94,7 @@ CheckScreen:
             Click, Up
             Sleep, 1000
             Send, {Esc}
+            Sleep, 500
         }
     }
 
@@ -107,47 +106,95 @@ CheckScreen:
         if (ErrorLevel = 0)
         {
             Click, %FoundX%, %FoundY%
-            Sleep, 3000
+            Sleep, 30000
             Break
+        }
+        else
+        {
+            Sleep, 1000  ; Retry every 1 second if not found
         }
     }
 
-    ; Process image 3 (Retry up to 10 times, then skip if not found)
-    RetryCount := 0
+; Process image 3 and 4
+Loop
+{
+    ; Check for image 3
+    currentImagePath := imagePaths3
+    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+    if (ErrorLevel = 0)
+    {
+        ; Show the message box
+        MsgBox, Image 3 found! The script will continue in 5 seconds.
+    
+        ; Wait for 5 seconds
+        Sleep, 5000
+        Click, %FoundX%, %FoundY%
+        Sleep, 500
+        Break
+    }
+
+    ; Check for image 4
+    currentImagePath := imagePaths4
+    ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+    if (ErrorLevel = 0)
+    {
+        Click, %FoundX%, %FoundY%
+        Sleep, 500
+        Break
+    }
+    
+    Sleep, 3000 ; Wait 3 seconds before retrying.
+}
+
+    ; Process image 5
     Loop
     {
-        currentImagePath := imagePaths3
+        currentImagePath := imagePaths5
         ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
         if (ErrorLevel = 0)
         {
             Click, %FoundX%, %FoundY%
-            Sleep, 3000
+            Sleep, 500
             Break
         }
-        RetryCount++
-        if (RetryCount >= 10)
+        else
         {
-            Break
+            Sleep, 1000  ; Retry every 1 second if not found
         }
     }
 
-    ; Process remaining images (continue flow even if image 3 was skipped)
-    Loop, 3
+    ; Process image 6
+    Loop
     {
-        currentImagePath := imagePaths%A_Index%+3
-        Loop
+        currentImagePath := imagePaths6
+        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+        if (ErrorLevel = 0)
         {
-            ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
-            if (ErrorLevel = 0)
-            {
-                Click, %FoundX%, %FoundY%
-                Sleep, 3000
-                Break
-            }
+            Click, %FoundX%, %FoundY%
+            Sleep, 500
+            Break
+        }
+        else
+        {
+            Sleep, 1000  ; Retry every 1 second if not found
         }
     }
 
+    ; Wait for 48 seconds before restarting the script from CheckScreen
+    Sleep, 48000  ; Wait 50 seconds before continuing
+
+    ; Restart the CheckScreen process
+    Goto, CheckScreen
 Return
 
 ; Hotkey to exit the script (F6)
-F6::ExitApp
+F6::
+    ; Release all keys and mouse buttons before exiting
+    Send, {a up}  ; Release 'a' key
+    Send, {s up}  ; Release 's' key
+    Send, {v up}  ; Release 'v' key (if held)
+    Click, Up  ; Release the mouse button
+    
+    ; Exit the script
+    ExitApp
+Return

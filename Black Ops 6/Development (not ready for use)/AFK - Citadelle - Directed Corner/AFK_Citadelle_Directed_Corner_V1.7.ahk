@@ -28,7 +28,6 @@ Loop, 6
     }
 }
 
-
 ; Declare a variable to track the first run
 started := false
 
@@ -65,7 +64,8 @@ CheckScreen:
     Send, {a down}  ; Hold A to move left
     Send, {s down}  ; Hold S to move (as you wanted)
 
-    Sleep, 18000000  ; Hold the keys and mouse for 5 hours (18 million milliseconds for testing, adjust as necessary)
+    ;Sleep, 18000000  ; Hold the keys and mouse for 5 hours (18 million milliseconds for testing, adjust as necessary)
+    sleep 1000
 
     ; After 5 hours, release the mouse and keys
     Send, {a up}  ; Release A
@@ -96,10 +96,11 @@ CheckScreen:
             Click, Up
             Sleep, 1000
             Send, {Esc}
+            Sleep, 1500
         }
     }
 
-    ; Process image 2
+    ; Process image 2 (with continuous retry)
     Loop
     {
         currentImagePath := imagePaths2
@@ -107,8 +108,12 @@ CheckScreen:
         if (ErrorLevel = 0)
         {
             Click, %FoundX%, %FoundY%
-            Sleep, 3000
+            Sleep, 30000
             Break
+        }
+        else
+        {
+            Sleep, 1000  ; Retry every 1 second if not found
         }
     }
 
@@ -121,7 +126,7 @@ CheckScreen:
         if (ErrorLevel = 0)
         {
             Click, %FoundX%, %FoundY%
-            Sleep, 3000
+            Sleep, 1500
             Break
         }
         RetryCount++
@@ -129,24 +134,65 @@ CheckScreen:
         {
             Break
         }
+        Sleep, 3000 ; Wait 3 seconds before retrying.
     }
 
-    ; Process remaining images (continue flow even if image 3 was skipped)
-    Loop, 3
+    ; Process image 4 (with continuous retry)
+    Loop
     {
-        currentImagePath := imagePaths%A_Index%+3
-        Loop
+        currentImagePath := imagePaths4
+        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+        if (ErrorLevel = 0)
         {
-            ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
-            if (ErrorLevel = 0)
-            {
-                Click, %FoundX%, %FoundY%
-                Sleep, 3000
-                Break
-            }
+            Click, %FoundX%, %FoundY%
+            Sleep, 1500
+            Break
+        }
+        else
+        {
+            Sleep, 1000  ; Retry every 1 second if not found
         }
     }
 
+    ; Process image 5 (with continuous retry)
+    Loop
+    {
+        currentImagePath := imagePaths5
+        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+        if (ErrorLevel = 0)
+        {
+            Click, %FoundX%, %FoundY%
+            Sleep, 1500
+            Break
+        }
+        else
+        {
+            Sleep, 1000  ; Retry every 1 second if not found
+        }
+    }
+
+    ; Process image 6 (with continuous retry)
+    Loop
+    {
+        currentImagePath := imagePaths6
+        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+        if (ErrorLevel = 0)
+        {
+            Click, %FoundX%, %FoundY%
+            Sleep, 1500
+            Break
+        }
+        else
+        {
+            Sleep, 1000  ; Retry every 1 second if not found
+        }
+    }
+
+    ; Wait for 50 seconds before restarting the script from CheckScreen
+    Sleep, 50000  ; Wait 50 seconds before continuing
+
+    ; Restart the CheckScreen process
+    Goto, CheckScreen
 Return
 
 ; Hotkey to exit the script (F6)

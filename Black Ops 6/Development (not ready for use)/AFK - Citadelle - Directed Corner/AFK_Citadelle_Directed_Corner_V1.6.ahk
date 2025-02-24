@@ -28,7 +28,6 @@ Loop, 6
     }
 }
 
-
 ; Declare a variable to track the first run
 started := false
 
@@ -131,22 +130,50 @@ CheckScreen:
         }
     }
 
-    ; Process remaining images (continue flow even if image 3 was skipped)
-    Loop, 3
+    ; Process image 4
+    Loop
     {
-        currentImagePath := imagePaths%A_Index%+3
-        Loop
+        currentImagePath := imagePaths4
+        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+        if (ErrorLevel = 0)
         {
-            ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
-            if (ErrorLevel = 0)
-            {
-                Click, %FoundX%, %FoundY%
-                Sleep, 3000
-                Break
-            }
+            Click, %FoundX%, %FoundY%
+            Sleep, 3000
+            Break
         }
     }
 
+    ; Process image 5
+    Loop
+    {
+        currentImagePath := imagePaths5
+        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+        if (ErrorLevel = 0)
+        {
+            Click, %FoundX%, %FoundY%
+            Sleep, 3000
+            Break
+        }
+    }
+
+    ; Process image 6
+    Loop
+    {
+        currentImagePath := imagePaths6
+        ImageSearch, FoundX, FoundY, 0, 0, %A_ScreenWidth%, %A_ScreenHeight%, *20 %currentImagePath%
+        if (ErrorLevel = 0)
+        {
+            Click, %FoundX%, %FoundY%
+            Sleep, 3000
+            Break
+        }
+    }
+
+    ; Wait for 50 seconds before restarting the script from CheckScreen
+    Sleep, 50000  ; Wait 50 seconds before continuing
+
+    ; Restart the CheckScreen process
+    Goto, CheckScreen
 Return
 
 ; Hotkey to exit the script (F6)
