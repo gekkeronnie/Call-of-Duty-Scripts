@@ -23,7 +23,7 @@ Hotkeys: <br/>
 F5 = Start Script<br>
 F6 = Exit Script<br/>
 
-### Emergency ALt F4
+### Emergency Alt F4
 Script alreeady works when executed, do a test before going AFK for long time to ensure it works.<br/>
 
 Hotkeys: <br/>
