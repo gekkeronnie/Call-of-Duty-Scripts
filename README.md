@@ -23,6 +23,12 @@ Hotkeys: <br/>
 F5 = Start Script<br>
 F6 = Exit Script<br/>
 
+### Emergency ALt F4
+Script alreeady works when executed, do a test before going AFK for long time to ensure it works.<br/>
+
+Hotkeys: <br/>
+F7 = End Script<br/>
+
 ### Mouse Position
 Script to get the position and color of the mouse.<br/>
 Upon execute script will display a tooltip with required information.<br/>
