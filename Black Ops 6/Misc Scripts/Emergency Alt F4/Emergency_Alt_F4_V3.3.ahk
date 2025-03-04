@@ -36,7 +36,7 @@ CheckScreen:
     y2 := centerY + (A_ScreenHeight * 0.3)
 
     ; Search for the downed indicator
-    ImageSearch, FoundX, FoundY, %x1%, %y1%, %x2%, %y2%, *5 %imagePath%
+    ImageSearch, FoundX, FoundY, %x1%, %y1%, %x2%, %y2%, %imagePath%
     if (ErrorLevel = 0)
     {
         Send, !{F4}  ; Sends Alt+F4
