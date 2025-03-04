@@ -23,6 +23,12 @@ Hotkeys: <br/>
 F5 = Start Script<br>
 F6 = Exit Script<br/>
 
+### Emergency Alt F4
+Script alreeady works when executed, do a test before going AFK for long time to ensure it works.<br/>
+
+Hotkeys: <br/>
+F7 = End Script<br/>
+
 ### Mouse Position
 Script to get the position and color of the mouse.<br/>
 Upon execute script will display a tooltip with required information.<br/>
@@ -56,9 +62,19 @@ F7 = End Script<br/>
 > V2.7
 > - First Public Release<br/><br/>
 >
+> ### Emergency Alt F4
+> V3.2
+> Rolled out a fix for image which was failing to download.
+> 
+> V3.1
+> - Finetuned code<br/>
+>
+> V3.0
+> - First Public Release<br/>
+>
 > ### Mouse Position
 > V2.0
 > - Instead of only pixel information is also gets percentage and readable color codes<br/>
 >
 > V1.0
-> - Initial release<br/>
+> - First Public Release<br/>
